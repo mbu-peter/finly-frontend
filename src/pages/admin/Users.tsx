@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Plus, Edit2, Trash2, CheckCircle, XCircle, Shield, ShieldOff } from 'lucide-react';
+import { Plus, Trash2, CheckCircle, XCircle, Shield, ShieldOff } from 'lucide-react';
 import { AdminLayout } from './AdminLayout';
 import { api } from '../../lib/api';
 import { toast } from 'sonner';
@@ -112,7 +112,7 @@ const UserTable = ({
 export const Users = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
   const [pagination, setPagination] = useState({ page: 1, limit: 10, total: 0, pages: 0 });
 
   useEffect(() => {
@@ -161,7 +161,7 @@ export const Users = () => {
     }
   };
 
-  const toggleUserStatus = async (id: string) => {
+  const toggleUserStatus = async (_id: string) => {
     // For now, just show a message - you can implement suspend/activate endpoint later
     toast.info('Status toggle feature coming soon');
   };

@@ -5,12 +5,11 @@ import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 
 interface KlarnaCheckoutProps {
   plan: string;
-  price: string; // e.g., "$12.00"
 }
 
-const KlarnaCheckout: React.FC<KlarnaCheckoutProps> = ({ plan, price }) => {
+const KlarnaCheckout: React.FC<KlarnaCheckoutProps> = ({ plan }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {

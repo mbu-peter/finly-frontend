@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Bell, Check, X, Info, AlertTriangle, CheckCircle } from 'lucide-react';
+import { Bell, X, Info, AlertTriangle, CheckCircle } from 'lucide-react';
 import { api } from '../lib/api';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'sonner';

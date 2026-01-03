@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { api } from '../lib/api';
 import { Card } from '../components/ui/Card';
-import { User, Mail, Shield, Save, Loader2, Bell, CreditCard, Camera, Check, X, ChevronRight, Zap, Smartphone } from 'lucide-react';
+import { User, Mail, Shield, Save, Loader2, Bell, CreditCard, Camera, Check, X, ChevronRight, Smartphone } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
@@ -43,11 +43,8 @@ const Settings = () => {
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
   useEffect(() => {
-    if (profile?.notifications) {
-      setNotifications(profile.notifications);
-    }
     fetchTwoFactorStatus();
-  }, [profile]);
+  }, []);
 
   const fetchTwoFactorStatus = async () => {
     try {
@@ -88,7 +85,8 @@ const Settings = () => {
 
     const toastId = toast.loading('Uploading avatar...');
     try {
-        const res = await api.postUpload('/profile/avatar', formData);
+        // const res = await api.postUpload('/profile/avatar', formData);
+        const res = await api.post('/profile/avatar', formData);
         toast.success(res.message || 'Avatar updated', { id: toastId });
         
         // Optimistic update of profile image (assuming reload or context refresh handles it eventually)
@@ -234,8 +232,8 @@ const Settings = () => {
                     <div className="flex items-center space-x-6 mb-8">
                        <div className="relative group cursor-pointer" onClick={handleAvatarClick}>
                           <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 flex items-center justify-center text-3xl font-bold overflow-hidden border-4 border-zinc-900 shadow-xl">
-                             {profile?.avatar ? (
-                                 <img src={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}${profile.avatar}`} alt="Avatar" className="w-full h-full object-cover" />
+                             {(profile as any)?.avatar? (
+                                 <img src={`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}${(profile as any).avatar}`} alt="Avatar" className="w-full h-full object-cover" />
                              ) : (
                                 (profile?.fullName?.[0] || user?.email?.[0] || 'U').toUpperCase()
                              )}

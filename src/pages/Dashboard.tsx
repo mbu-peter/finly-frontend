@@ -2,17 +2,13 @@ import { useState, useEffect } from 'react';
 import { Button } from '../components/ui/Button';
 import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import {
-  ArrowUpRight,
-  Plus,
-  TrendingUp,
-  TrendingDown,
   ArrowRight,
   ArrowLeftRight,
   Loader2
 } from 'lucide-react';
-import { toast } from 'sonner';
+
 import { api } from '../lib/api';
 import SendModal from '../components/SendModal';
 import DepositModal from '../components/DepositModal';
@@ -46,7 +42,7 @@ const Dashboard = () => {
   const [swapFrom, setSwapFrom] = useState('usd');
   const [swapTo, setSwapTo] = useState('bitcoin');
   const [swapAmount, setSwapAmount] = useState('');
-  const [swapping, setSwapping] = useState(false);
+  
 
   const fetchWallet = async () => {
     try {
@@ -114,24 +110,7 @@ const Dashboard = () => {
     return () => clearInterval(i);
   }, [profile]);
 
-  const handleSwap = async () => {
-    if (!swapAmount) return toast.error('Enter amount');
-    setSwapping(true);
-    try {
-      await api.post('/market/swap', {
-        userId: profile?.id,
-        fromAsset: swapFrom,
-        toAsset: swapTo,
-        amount: swapAmount
-      });
-      toast.success('Swap successful');
-      window.location.reload();
-    } catch {
-      toast.error('Swap failed');
-    } finally {
-      setSwapping(false);
-    }
-  };
+  
 
   const totalBalance =
     portfolioStats.total + portfolioStats.cryptoValue;

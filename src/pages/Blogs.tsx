@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, ArrowRight, Loader2 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';

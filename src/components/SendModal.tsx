@@ -20,7 +20,7 @@ const SendModal: React.FC<SendModalProps> = ({ isOpen, onClose, balances, onSucc
   const [error, setError] = useState<string | null>(null);
 
   const currentBalance = balances.find(b => b.network === selectedNetwork)?.amount || '0';
-  const currentNetworkName = balances.find(b => b.network === selectedNetwork)?.networkName || 'Unknown';
+  // const currentNetworkName = balances.find(b => b.network === selectedNetwork)?.networkName || 'Unknown';
 
   const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -44,6 +44,7 @@ const SendModal: React.FC<SendModalProps> = ({ isOpen, onClose, balances, onSucc
         assetId: selectedAsset,
         network: selectedNetwork
       });
+      console.log('Send response:', data);
 
       toast.success('Transaction sent successfully!');
       onSuccess();

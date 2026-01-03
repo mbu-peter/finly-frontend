@@ -176,7 +176,7 @@ const Checkout = () => {
                  <p className="text-zinc-500 font-medium">Welcome to the {plan} tier. A new virtual card has been issued to your account.</p>
                  <div className="bg-zinc-100 p-4 rounded-2xl border border-zinc-200 mt-4">
                     <p className="text-[10px] uppercase font-black tracking-widest text-zinc-400 mb-1">Your new card</p>
-                    <p className="font-mono font-bold text-lg">•••• •••• •••• {user?.cardNumber || '4456'}</p>
+                    <p className="font-mono font-bold text-lg">•••• •••• •••• {user?.id || '4456'}</p>
                  </div>
                  <p className="text-zinc-400 text-sm italic pt-4">Redirecting you to your dashboard...</p>
                </div>

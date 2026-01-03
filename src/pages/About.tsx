@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { Info, Shield, Zap, Globe, ArrowRight, Loader2 } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { api } from '../lib/api';
-import { toast } from 'sonner';
+// import { toast } from 'sonner';
 
 interface BlogPost {
   _id: string;
@@ -69,6 +69,7 @@ const About = () => {
       setLoading(false);
     }
   };
+  console.log(loading)
 
   const getImageUrl = (coverImage?: string) => {
     if (!coverImage) return '/images/blog/default.png';
@@ -216,7 +217,7 @@ const About = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {latestBlogs.length > 0 ? (
-            latestBlogs.map((post, i) => (
+            latestBlogs.map((post) => (
               <NavLink key={post._id} to={`/blog/${post.slug}`}>
                 <motion.article
                   whileHover={{ y: -4 }}

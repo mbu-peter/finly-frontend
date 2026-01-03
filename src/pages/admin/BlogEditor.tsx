@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { X, Sparkles, Upload, Image as ImageIcon, Bold, Italic, List, Heading1, Heading2, Link, Image, Eye, Edit } from 'lucide-react';
+import { X, Sparkles, Upload, Bold, Italic, List, Heading1, Heading2, Link, Image, Eye, Edit } from 'lucide-react';
 import { api } from '../../lib/api';
 import { toast } from 'sonner';
 import ReactMarkdown from 'react-markdown';

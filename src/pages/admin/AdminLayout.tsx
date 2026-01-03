@@ -55,7 +55,7 @@ interface AdminLayoutProps {
 export const AdminLayout = ({ children, activeTab, unreadMessageCount }: AdminLayoutProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
   const { profile, signOut } = useAuth();
 
   const handleTabChange = (tab: 'dashboard' | 'users' | 'blogs' | 'messages' | 'content' | 'settings') => {
