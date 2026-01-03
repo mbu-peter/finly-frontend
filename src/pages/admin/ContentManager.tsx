@@ -203,13 +203,13 @@ const ContentManager = () => {
     }
   };
 
-  const getImageUrl = (imageUrl?: string) => {
-    if (!imageUrl) return null;
-    if (imageUrl.startsWith("http")) return imageUrl;
-    const apiBase =
-      import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
-    return `${apiBase}${imageUrl}`;
-  };
+  // const getImageUrl = (imageUrl?: string) => {
+  //   if (!imageUrl) return null;
+  //   if (imageUrl.startsWith("http")) return imageUrl;
+  //   const apiBase =
+  //     import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+  //   return `${apiBase}${imageUrl}`;
+  // };
 
   if (loading) {
     return (
